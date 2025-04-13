@@ -13,6 +13,9 @@ header div {
     height: 100px;
     /* border: 1px solid black; */
     float:left;
+    /* position: absolute;
+    top:20px;
+    left: 20px; */
 }
 #logoDiv img{
     width: 80%;
@@ -65,6 +68,9 @@ header nav ul {
     font-size: 60px;
     float:right;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* transform: rotate(180deg); */
+    transform: skewX(40deg);
+    /* transform: skewY(10deg); */
 }
 
 aside {
@@ -112,7 +118,7 @@ footer {
     color: white;
     margin:2px;
     position: sticky;
-    top:10px;
-    left:10px;
+    top: 10px;
+    left:20px;
     
 }
