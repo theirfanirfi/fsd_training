@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Forms</title>
+    </head>
+    <body>
+        <a href="index.html">Home</a>
+
+
+        <form action="">
+            <label for="firstName">First Name</label>
+            <input type="text" minlength="4" maxlength="15" name="firstName" id="firstName" placeholder="First Name" />
+            <br/>
+            <label for="age">Age</label>
+            <select id="age">
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+            </select>
+            <br/>
+            <label>Gender</label>
+            <input type="radio" name="gender" value="male" /> Male
+            <input type="radio" name="gender" value="female" /> Female
+
+<br/>
+            <label>Courses</label>
+            <input type="checkbox" name="courses[]" value="HTML" /> HTML
+            <input type="checkbox" name="courses[]" value="CSS" /> CSS
+            <input type="checkbox" name="courses[]" value="JS" /> JS
+            <input type="checkbox" name="courses[]" value="REACT" /> REACT
+            <input type="checkbox" name="courses[]" value="NODE" /> Node
+            <input type="checkbox" name="courses[]" value="EXPRESS" /> Express
+        <br/>
+        <label>Height</label>
+            <input type="number" min="4" max="6" />
+        <br/>
+        <label>Select Your Picture</label>
+        <input type="file" name="profile_picture" />
+
+        <button type="submit">Submit Form</button>
+        </form>
+    </body>
+</html>
+
