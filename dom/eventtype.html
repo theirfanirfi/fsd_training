@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Event Type</title>
+    </head>
+
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+
+    <body>
+
+        <div class="box" onclick="addMoveClass(this)"></div>
+        <div class="box" onclick="addMoveClass(this)"></div>
+
+
+        <script>
+            var marginLeft = 0;
+            var marginTop = 0; 
+
+            // box.addEventListener('dblclick',function(event){
+            //     alert('box is double clicked');
+            // })
+
+            function addMoveClass(e){
+               let boxes = document.getElementsByClassName('box');
+               console.log(boxes);
+               for(let i = 0; i<boxes.length; i++){
+                boxes[i].classList.remove('move');
+               }
+
+               e.classList.add('move');
+
+            }
+
+            document.addEventListener('keydown', function (event) {
+            var box = document.getElementsByClassName('move')[0];
+                console.log(event.key);
+                console.log(event.keyCode);
+               if(event.keyCode == 39){ // right
+              
+                    marginLeft+=100;
+                    box.style.marginLeft = marginLeft+"px";
+                // }
+               }else if(event.keyCode == 37){ //left
+                if(marginLeft > 0){
+                    marginLeft-=100;
+                    box.style.marginLeft = marginLeft;
+                }
+               }else if(event.keyCode == 38){ // up
+                marginTop -= 100;
+                box.style.marginTop = marginTop;
+
+               }else if(event.keyCode == 40){ // down
+                marginTop += 100;
+                box.style.marginTop = marginTop;
+               }
+            })
+        </script>
+    </body>
+</html>

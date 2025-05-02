@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title>DOM Manipulation</title>
+    </head>
+
+    <body>
+
+        <!-- <div onmouseleave="changeDivColor(this, 'leave');" onmouseenter="changeDivColor(this, 'enter');" style="width: 200px; height: 200px;margin:20px;background-color: red;">
+
+        </div> -->
+
+        <div onmouseenter="moveObjectToTheRight(this);" style="width: 200px; height: 200px;margin:20px;background-color: red;">
+
+        </div>
+
+        <form>
+            <label>Student Name</label>
+            <input class="std" value="ABC" id="student_name" type="text" placeholder="Student Name" />
+
+
+            <label>Student GPA</label>
+            <input class="std" id="student_gpa" type="number" placeholder="Student GPA" />
+
+            <button onclick="clickListener(this);" type="button" id="add_student_button">Add Student</button>
+        </form>
+
+        <table border="1">
+            <thead>
+                <th>#</th>
+                <th>Student Name</th>
+                <th>Student GPA</th>
+                <th>Action</th>
+            </thead>
+
+            <tbody id="tbody">
+            </tbody>
+        </table>
+
+        <h1 id="total_cgpa">Total CGPA</h1>
+
+
+
+    <script>
+
+        var margin = 20;
+        function moveObjectToTheRight(){
+            let div = document.getElementsByTagName('div')[0]
+            div.style.marginLeft = `${margin}px`
+
+            if(margin < 350){
+            margin = margin + 20; 
+
+            }else {
+                margin = 20
+            }
+        }
+
+        // setInterval(moveObjectToTheRight, 60000);
+
+        // setTimeout(function (){
+        //     console.log("I am called after 10 seconds");
+        // }, 10000)
+
+        setInterval(function (){
+            console.log("I am called after 10 seconds");
+        }, 10000)
+
+
+        function changeDivColor(event, event_type){
+            if(event_type =='enter'){
+            event.style.backgroundColor = "green";
+            }else if(event_type == 'leave'){
+            event.style.backgroundColor = "red";
+            }else {
+                //
+            }
+        }
+        //selectors
+            // id
+            // class
+            // tag name
+
+        var counter = 0;
+        var student_name_element = document.getElementById('student_name');
+        var student_gpa_element = document.getElementById('student_gpa');
+        var table_body = document.getElementById('tbody');
+
+        // var student = document.getElementsByTagName("input");
+        // var student = document.getElementsByClassName("std");
+
+        // var button_element = document.getElementsByTagName('button');
+        var add_student_button = document.getElementById('add_student_button');
+
+        // console.log(student_name_element)
+
+        let total_cgpa= 0;
+
+        function clickListener(event){
+            // event.preventDefault();
+            counter++;
+          let std_name=  student_name_element.value;
+          let std_gpa=  student_gpa_element.value;
+
+          total_cgpa = total_cgpa + parseInt(std_gpa);
+          document.getElementById('total_cgpa').innerHTML = total_cgpa;
+
+        //   std_gpa = parseInt(std_gpa);
+
+          
+          let tr = document.createElement('tr');
+
+          tr.setAttribute('row_index', counter);
+
+          let td_sn = document.createElement('td');
+          let td_sName = document.createElement('td');
+          let td_sGpa = document.createElement('td');
+          let td_action = document.createElement('td');
+
+          let actionButton = document.createElement('button');
+          actionButton.innerHTML = "Delete"
+          actionButton.setAttribute('row_index', counter);
+          actionButton.addEventListener('click', function (event) {
+            let row_index= this.getAttribute('row_index');
+            let row = table_body.childNodes[row_index];
+            table_body.removeChild(row);
+            count--;
+          })
+
+          td_action.appendChild(actionButton);
+
+          td_sn.innerHTML = counter;
+          td_sName.innerHTML = std_name;
+          td_sGpa.innerHTML = std_gpa;
+
+          tr.appendChild(td_sn);
+          tr.appendChild(td_sName);
+          tr.appendChild(td_sGpa);
+          tr.appendChild(actionButton);
+
+          table_body.appendChild(tr);
+
+
+
+        }
+
+        // add_student_button.addEventListener('click', clickListener);
+
+
+    </script>
+    </body>
+</html>

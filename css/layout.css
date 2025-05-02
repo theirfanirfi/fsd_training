@@ -69,10 +69,16 @@ header nav ul {
     float:right;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     /* transform: rotate(180deg); */
-    transform: skewX(40deg);
+    /* transform: skewX(40deg); */
     /* transform: skewY(10deg); */
 }
-
+#titleDiv h2:hover {
+    /* transform: skewX(40deg); */
+    transform-origin: 20%;
+    transform: scale(1.5);
+    transition: ease-in;
+    transition-duration: 2s;
+}
 aside {
     width: 25%;
     height: 90%;
