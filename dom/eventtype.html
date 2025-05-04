@@ -3,6 +3,8 @@
         <title>Event Type</title>
     </head>
 
+    https://github.com/theirfanirfi/fsd_training
+
     <style>
         div {
             width: 200px;
@@ -10,11 +12,18 @@
             background-color: green;
             position: absolute;
         }
+
+        .green {
+            width: 400px;
+            width: 400px;
+            background-color: green;
+            position: absolute;
+        }
     </style>
 
     <body>
 
-        <div class="box" onclick="addMoveClass(this)"></div>
+        <div class="green" onclick="addMoveClass(this)"></div>
         <div class="box" onclick="addMoveClass(this)"></div>
 
 
@@ -39,6 +48,7 @@
 
             document.addEventListener('keydown', function (event) {
             var box = document.getElementsByClassName('move')[0];
+            console.log(box);
                 console.log(event.key);
                 console.log(event.keyCode);
                if(event.keyCode == 39){ // right
